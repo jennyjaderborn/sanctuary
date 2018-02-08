@@ -1,14 +1,18 @@
 <?php
 
  abstract class Animal {
+
     protected $image;
     protected $sound;
-     public function onclick(){
+
+     private function onclick(){
         $names = array("Greta", "Henry", "Ingo", "Josefine", "Isak", "Karin", "Anders", "Sara", "Tarzan", "Leo", "James", "Rosanna", "Anna");        
-        $namnet = $names[array_rand($names)];
-        return "alert(\" $this->sound + $namnet\");";
+        $this->namnet = $names[array_rand($names)];
+        return $this->writeAlert();
      }
-     //"<h1>$this->sound</h1>";
+
+     public abstract function writeAlert();
+        
 
     public function draw() {
         echo "<img style='margin: 10px; width: 200px' src='".$this->image."' onclick='".$this->onClick()."' />";
@@ -28,20 +32,42 @@
 class Giraff extends Animal {
     protected $sound = "wihhihi";
     protected $image = 'giraff.png';
+
+   public function writeAlert() {
+        return "alert(\" $this->namnet - $this->sound \");";
+    }
 }
 
 class Apa extends Animal {
     protected $image = 'monkey.png';
+    protected $sound = "wihihohho";
+    public function writeAlert() {
+        return "alert(\" $this->namnet - $this->sound \");";
+    }
 }
 class Tiger extends Animal {
     protected $image = 'tiger.png';
     protected $sound = "GRRRw";
+    public function writeAlert() {
+        return "alert(\" $this->namnet - $this->sound \");";
+    }
 }
 class Kokosnot extends Animal {//byt superclass
     protected $image = 'kokosnot.png';
+    public function writeAlert() {
+        return null;
+    }
+}
+
+/*
+
+for($i=0; $i < count($tigrar); $i++){
+    new Tiger();
 }
 
 $family = array(
+    new Giraff(),
+    new Giraff(),
     new Giraff(),
     new Apa(),
     new Tiger(),
@@ -50,3 +76,4 @@ $family = array(
 foreach ($family as $member) {
     $member->draw();
 }
+*/

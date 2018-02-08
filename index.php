@@ -4,10 +4,10 @@ include 'footer.php';
 ?>
 <div class="formWrap">
 <form method="GET" action="./results.php">
-<input placeholder="apor" name="selected"/></label>
-<input type="text" placeholder="Giraffer" name="selected"/></label>
-<input placeholder="Tigrar" name="selected"/></label>
-<input placeholder ="Kokosnötter" name="selected"/></label>
+<input type="number" placeholder="apor" name="apa"/></label>
+<input type="number" placeholder="Giraffer" name="giraff"/></label>
+<input type="number" placeholder="Tigrar" name="tiger"/></label>
+<input type="number" placeholder ="Kokosnötter" name="kokosnot"/></label>
 
 <button type="submit">Visa</button>
 </form>
