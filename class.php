@@ -1,8 +1,14 @@
 <?php
 
  abstract class Animal {
-     protected $image;
-     public abstract function onclick();
+    protected $image;
+    protected $sound;
+     public function onclick(){
+        $names = array("Greta", "Henry", "Ingo", "Josefine", "Isak", "Karin", "Anders", "Sara", "Tarzan", "Leo", "James", "Rosanna", "Anna");        
+        $namnet = $names[array_rand($names)];
+        return "alert(\" $this->sound + $namnet\");";
+     }
+     //"<h1>$this->sound</h1>";
 
     public function draw() {
         echo "<img style='margin: 10px; width: 200px' src='".$this->image."' onclick='".$this->onClick()."' />";
@@ -20,24 +26,26 @@
 
 
 class Giraff extends Animal {
+    protected $sound = "wihhihi";
     protected $image = 'giraff.png';
-    public function onClick() {
-        return null;
-    }
 }
 
-/*class Apa extends Sanctuary {
-    
+class Apa extends Animal {
+    protected $image = 'monkey.png';
 }
-class Tiger extends Sanctuary {
-    
+class Tiger extends Animal {
+    protected $image = 'tiger.png';
+    protected $sound = "GRRRw";
 }
-class Kokosnöt extends Sanctuary {
-    
-}*/
+class Kokosnot extends Animal {//byt superclass
+    protected $image = 'kokosnot.png';
+}
 
 $family = array(
     new Giraff(),
+    new Apa(),
+    new Tiger(),
+    new Kokosnot(),
 );
 foreach ($family as $member) {
     $member->draw();
